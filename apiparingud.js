@@ -8,7 +8,7 @@ async function handleSearch(event) {
   const raamatuId = document.getElementById("search_raamatu_id").value;
   const sone = document.getElementById("search_sone").value;
 
-  const url = `http://localhost:5001/raamatu_otsing/${raamatuId}`;
+  const url = `http://hs-praks-12-webapp-otsing.azurewebsites.net/raamatu_otsing/${raamatuId}`;
 
   const response = await fetch(url, {
     method: "POST",
@@ -131,14 +131,14 @@ async function handleFormSubmit(event) {
 
 async function listiraamatud() {
 
-  const responseData = await getDataAsJson("http://localhost:5000/raamatud/");
+  const responseData = await getDataAsJson("http://hs-praks-12-webapp.azurewebsites.net/raamatud/");
   const resultElement = document.getElementById("raamatud_result");
   resultElement.innerHTML = "";
 
   for (var raamat of responseData.raamatud) {
     let name = raamat.split('.')[0];
 
-    resultElement.innerHTML += '<a href="http://localhost:5000/raamatud/' + name + '"  download="' + name + '.txt" >' + name + ".txt<a/> " + '<a href="#" onclick="deleteObject(\'http://localhost:5000/raamatud/' + name + '\')" > [kustuta]</a>' + "<br />";
+    resultElement.innerHTML += '<a href="http://hs-praks-12-webapp.azurewebsites.net/raamatud/' + name + '"  download="' + name + '.txt" >' + name + ".txt<a/> " + '<a href="#" onclick="deleteObject(\'http://hs-praks-12-webapp.azurewebsites.net/raamatud/' + name + '\')" > [kustuta]</a>' + "<br />";
   }
 }
 
@@ -160,6 +160,7 @@ function handleResponse(form, responseData) {
     resultElement.innerHTML = output;
   }
 }
+
 
 
 
