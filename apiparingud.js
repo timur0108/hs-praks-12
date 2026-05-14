@@ -8,7 +8,7 @@ async function handleSearch(event) {
   const raamatuId = document.getElementById("search_raamatu_id").value;
   const sone = document.getElementById("search_sone").value;
 
-  const url = `http://hs-praks-12-webapp-otsing.azurewebsites.net/raamatu_otsing/${raamatuId}`;
+  const url = `https://hs-praks-12-webapp-otsing.azurewebsites.net/raamatu_otsing/${raamatuId}`;
 
   const response = await fetch(url, {
     method: "POST",
@@ -131,14 +131,14 @@ async function handleFormSubmit(event) {
 
 async function listiraamatud() {
 
-  const responseData = await getDataAsJson("http://hs-praks-12-webapp.azurewebsites.net/raamatud/");
+  const responseData = await getDataAsJson("https://hs-praks-12-webapp.azurewebsites.net/raamatud/");
   const resultElement = document.getElementById("raamatud_result");
   resultElement.innerHTML = "";
 
   for (var raamat of responseData.raamatud) {
     let name = raamat.split('.')[0];
 
-    resultElement.innerHTML += '<a href="http://hs-praks-12-webapp.azurewebsites.net/raamatud/' + name + '"  download="' + name + '.txt" >' + name + ".txt<a/> " + '<a href="#" onclick="deleteObject(\'http://hs-praks-12-webapp.azurewebsites.net/raamatud/' + name + '\')" > [kustuta]</a>' + "<br />";
+    resultElement.innerHTML += '<a href="https://hs-praks-12-webapp.azurewebsites.net/raamatud/' + name + '"  download="' + name + '.txt" >' + name + ".txt<a/> " + '<a href="#" onclick="deleteObject(\'https://hs-praks-12-webapp.azurewebsites.net/raamatud/' + name + '\')" > [kustuta]</a>' + "<br />";
   }
 }
 
