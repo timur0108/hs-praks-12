@@ -137,9 +137,16 @@ async function listiraamatud() {
 
   for (var raamat of responseData.raamatud) {
     let name = raamat.split('.')[0];
+	resultElement.innerHTML +=
+  '<a href="https://hs-praks-12-webapp.azurewebsites.net/raamatud/' + name + '" download="' + name + '.txt">' +
+  name + '.txt</a> ' +
 
-    resultElement.innerHTML += '<a href="https://hs-praks-12-webapp.azurewebsites.net/raamatud/' + name + '"  download="' + name + '.txt" >' + name + ".txt<a/> " + '<a href="#" onclick="deleteObject(\'https://hs-praks-12-webapp.azurewebsites.net/raamatud/' + name + '\')" > [kustuta]</a>' + "<br />";
-  }
+  '<a href="https://hs-praks-12-webapp.azurewebsites.net/raamatud/' + name + '/pdf" target="_blank">' +
+  name + '.pdf</a> ' +
+
+  '<a href="#" onclick="deleteObject(\'https://hs-praks-12-webapp.azurewebsites.net/raamatud/' + name + '\')">[kustuta]</a>' +
+  '<br />';
+    }
 }
 
 
